@@ -18,5 +18,5 @@
     "baseUrl": "src"
   },
   "include": ["src"],
-  "files": ["src/Test/CustomTypes.d.ts"]
+  "files": ["src/Test/CustomTypes.d.ts", "src/Style/styled.d.ts"]
 }

@@ -1,8 +1,20 @@
 import React from 'react';
-import { Childer } from '../../Interface';
-import Carousel from 'Components/Carousel';
+import Switch from 'react-switch';
+import { ThemeContext } from 'styled-components';
 
-const Header: React.FC<Childer> = (): JSX.Element => {
+import { Childer } from '../../Interface';
+
+import Carousel from 'Components/Carousel';
+import Container from 'Components/Container';
+import Flex from 'Common/Layout/Flex';
+
+interface PropsHeader extends Childer {
+  toggleTheme(): void;
+}
+
+const Header: React.FC<PropsHeader> = ({ toggleTheme }): JSX.Element => {
+  const theme = React.useContext(ThemeContext);
+
   const images = [
     {
       id: '1',
@@ -27,15 +39,33 @@ const Header: React.FC<Childer> = (): JSX.Element => {
     },
     {
       id: '4',
-      url: 'https://via.placeholder.com/250/3D1D73/ffffff',
+      url: 'https://placehold.jp/250x250.png',
       width: 250,
       height: 250,
       alt: 'img',
     },
   ];
+  // const [checked, setChecked] = React.useState(false);
   return (
     <div>
-      Diego
+      <span> Diego</span>
+
+      <Container>
+        <Flex Align="center" Justify="space-between">
+          hghhg
+          <Switch
+            checked={theme?.title === 'light'}
+            onChange={() => toggleTheme()}
+            uncheckedIcon={false}
+            checkedIcon={false}
+            height={10}
+            width={40}
+            handleDiameter={20}
+            offColor={theme?.colors.primary}
+            onColor={theme?.colors.secundary}
+          />
+        </Flex>
+      </Container>
       <div>
         <Carousel Elements={images} />
       </div>
