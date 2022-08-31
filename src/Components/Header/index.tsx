@@ -7,6 +7,7 @@ import { Childer } from '../../Interface';
 import Carousel from 'Components/Carousel';
 import Container from 'Components/Container';
 import Flex from 'Common/Layout/Flex';
+import { ColorContainer } from './style';
 
 interface PropsHeader extends Childer {
   toggleTheme(): void;
@@ -47,13 +48,14 @@ const Header: React.FC<PropsHeader> = ({ toggleTheme }): JSX.Element => {
   ];
   // const [checked, setChecked] = React.useState(false);
   return (
-    <div>
+    <ColorContainer data-testid="Switchbackground">
       <span> Diego</span>
 
       <Container>
         <Flex Align="center" Justify="space-between">
           hghhg
           <Switch
+            data-testid="switch"
             checked={theme?.title === 'light'}
             onChange={() => toggleTheme()}
             uncheckedIcon={false}
@@ -69,7 +71,7 @@ const Header: React.FC<PropsHeader> = ({ toggleTheme }): JSX.Element => {
       <div>
         <Carousel Elements={images} />
       </div>
-    </div>
+    </ColorContainer>
   );
 };
 

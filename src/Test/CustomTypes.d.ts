@@ -1,5 +1,6 @@
 interface CustomMatchers<R = { message: () => string; pass: boolean }> {
   toBeInRange(floor: number, ceiling: number): R;
+  toBeMatch(expected: boolean): R;
 }
 
 declare module global {
